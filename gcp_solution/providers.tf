@@ -9,8 +9,8 @@ terraform {
 
 provider "google" {
   credentials = file("~/google_cloud_credentials.json")
-  # project     = "${env("GOOGLE_CLOUD_PROJECT_ID")}"
-  region = "us-central1"
+  project     = var.project_id
+  region      = var.region
 }
 
 module "network" {
