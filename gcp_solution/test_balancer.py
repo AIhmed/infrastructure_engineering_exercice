@@ -1,6 +1,6 @@
 import requests
 
 while 1:
-    r = requests.get("http://35.206.99.227/")
+    r = requests.get("http://34.68.24.235/")
     print(r.content)
 
