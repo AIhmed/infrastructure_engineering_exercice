@@ -4,13 +4,13 @@ locals {
       name                    = "terr-vm1"
       machine_type            = "e2-standard-2"
       zone                    = "us-central1-a"
-      metadata_startup_script = file("scripts/start_apache2_1.sh")
+      metadata_startup_script = file("pr.sh")
     },
     vm2 = {
       name                    = "terr-vm2"
       machine_type            = "e2-standard-2"
       zone                    = "us-central1-a"
-      metadata_startup_script = file("scripts/start_apache2_2.sh")
+      metadata_startup_script = file("pr.sh")
     }
   }
 }
