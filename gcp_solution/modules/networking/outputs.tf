@@ -1,6 +1,6 @@
-output "public_subnet_name" {
-  value = google_compute_subnetwork.private_subnet.name
+output "terr_private_subnet_name" {
+  value = google_compute_subnetwork.terr_private_subnet.name
 }
-output "vpc_name" {
-  value = google_compute_network.web_app_vpc.name
+output "lb_ip" {
+value = google_compute_forwarding_rule.terr_lb.ip_address
 }

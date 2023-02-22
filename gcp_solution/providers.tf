@@ -15,6 +15,6 @@ provider "google" {
 
 module "network" {
   source  = "./modules/networking"
-  vm1_url = google_compute_instance.web_app_vms["vm1"].self_link
-  vm2_url = google_compute_instance.web_app_vms["vm2"].self_link
+  vm1_url = google_compute_instance.terr_vms["vm1"].self_link
+  vm2_url = google_compute_instance.terr_vms["vm2"].self_link
 }
