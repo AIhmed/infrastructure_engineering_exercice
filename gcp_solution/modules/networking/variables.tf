@@ -9,3 +9,6 @@ variable "vm2_url" {
 variable "terr_vms_group_id" {
   type = string
 }
+variable "project_id" {
+type = string
+}
