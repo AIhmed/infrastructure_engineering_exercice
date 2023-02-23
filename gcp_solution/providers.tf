@@ -27,3 +27,6 @@ module "network" {
   #vm1_url = module.compute.terr_vm1_link
   #vm2_url = module.compute.terr_vm2_link
 }
+module "monitoring" {
+  source = "./modules/monitoring"
+}
