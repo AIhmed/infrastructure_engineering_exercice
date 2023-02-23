@@ -13,16 +13,8 @@ provider "google" {
   region      = "us-central1"
 }
 
-module "compute" {
-  source = "./modules/compute"
-  terr_private_subnet_name = module.network.terr_private_subnet_name
-  terr_vpc_name = module.network.terr_vpc_name
-}
-
 module "network" {
   source  = "./modules/networking"
-  terr_vms_group_id = module.compute.terr_vms_group_id
-  
-  #vm1_url = module.compute.terr_vm1_link
-  #vm2_url = module.compute.terr_vm2_link
+  vm1_url = google_compute_instance.terr_vms["vm1"].self_link
+  vm2_url = google_compute_instance.terr_vms["vm2"].self_link
 }
