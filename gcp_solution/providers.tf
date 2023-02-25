@@ -29,4 +29,5 @@ module "network" {
 }
 module "monitoring" {
   source = "./modules/monitoring"
+  lb_name = module.network.lb_name
 }
