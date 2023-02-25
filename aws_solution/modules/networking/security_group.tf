@@ -1,5 +1,5 @@
 resource "aws_security_group" "allow_http" {
-  vpc_id = module.networking.vpc_id
+  vpc_id = aws_vpc.web_app_vpc.id
   name   = "allow-http"
   ingress {
     from_port   = 80
@@ -14,6 +14,6 @@ resource "aws_security_group" "allow_http" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "allow incoming and outgoing http requests to ec2 resources"
+    Name = "allow-http"
   }
 }
