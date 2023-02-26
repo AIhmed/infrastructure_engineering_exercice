@@ -31,9 +31,9 @@ resource "google_compute_instance" "terr_vms" {
 
     #}
   }
-  metadata = {
-    ssh_keys = "hmed:${file("./id_rsa.pub")}"
-  }
+  #metadata = {
+  #  ssh_keys = "hmed:${file("./id_rsa.pub")}"
+  #}
   metadata_startup_script = each.value.metadata_startup_script
   tags                    = ["terr-allow-http"]
 }

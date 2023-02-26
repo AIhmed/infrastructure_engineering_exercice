@@ -24,3 +24,8 @@ module "compute" {
   private_subnet_id = module.networking.private_subnet_id
   allow_http_sg_id = module.networking.allow_http_sg_id
 }
+
+module "monitoring" {
+  source = "./modules/monitoring"
+  lb_name = module.networking.lb_name
+}

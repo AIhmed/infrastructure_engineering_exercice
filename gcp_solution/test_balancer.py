@@ -3,8 +3,10 @@ import time
 
 start_time = time.time()
 delta = round(time.time() - start_time)
+count = 0
 while delta <= 90:
-    r = requests.get("http://34.149.56.23:80/")
+    r = requests.get("http://34.160.13.126/")
     print(f"{r.content} \t \t \t {delta}")
     delta = round(time.time() - start_time)
-
+    count += 1
+print(f"total number of requests per minute in google cloud is {count}")

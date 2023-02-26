@@ -21,6 +21,4 @@ resource "google_monitoring_alert_policy" "http_request_alert" {
       }
     }
   }
-
 }
-
