@@ -8,6 +8,10 @@ terraform {
       source  = "hashicorp/google"
       version = "4.53.1"
     }
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=3.0.0"
+    }
   }
 }
 
@@ -23,6 +27,11 @@ provider "google" {
   region      = "us-central1"
 }
 
+provider "azurerm" {
+  features {}
+  subscription_id = var.azure_subscription_id
+  skip_provider_registration = true
+}
 
 
 module "gcp_solution" {
@@ -32,4 +41,9 @@ module "gcp_solution" {
 
 module "aws_solution" {
   source = "./aws_solution"
+}
+module "azure_solution" {
+  source = "./azure_solution"
+  location = var.azure_location
+  resource_group_name = var.azure_resource_group
 }
