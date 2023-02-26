@@ -1,9 +1,9 @@
-variable "access_key_id" {
+variable "aws_access_key_id" {
   type = string
 }
-variable "secret_key_id" {
+variable "aws_secret_key_id" {
   type = string
 }
-variable "project_id" {
+variable "gcp_project_id" {
   type = string
 }
