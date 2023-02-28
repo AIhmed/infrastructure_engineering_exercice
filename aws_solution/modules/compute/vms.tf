@@ -23,7 +23,7 @@ data "aws_ami" "vimages" {
 resource "aws_instance" "web_app_vms" {
   ami             = data.aws_ami.vimages.id
   subnet_id       = var.private_subnet_id
-  security_groups = [var.allow_http_sg_id]
+  vpc_security_group_ids = [var.allow_http_sg_id]
   instance_type   = "t2.micro"
   user_data       = file("pr.sh")
   for_each        = local.vm_names

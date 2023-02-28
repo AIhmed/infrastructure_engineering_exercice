@@ -1,8 +1,8 @@
-variable "aws_access_key_id" {
+variable "aws_access_key" {
   type = string
 }
 
-variable "aws_secret_key_id" {
+variable "aws_secret_key" {
   type = string
 }
 
@@ -19,6 +19,21 @@ variable "azure_resource_group" {
 }
 
 variable "azure_location" {
-  type = string
+  type    = string
   default = "Central US"
+}
+
+variable "enable_aws" {
+  type    = bool
+  default = false
+}
+
+variable "enable_gcp" {
+  type    = bool
+  default = false
+}
+
+variable "enable_azure" {
+  type    = bool
+  default = false
 }

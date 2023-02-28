@@ -17,33 +17,35 @@ terraform {
 
 provider "aws" {
   region     = "us-east-1"
-  access_key = var.aws_access_key_id
-  secret_key = var.aws_secret_key_id
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
 }
 
 provider "google" {
-  credentials = file("~/google_cloud_credentials.json")
+  credentials = file("./google_cloud_credentials.json")
   project     = var.gcp_project_id
   region      = "us-central1"
 }
 
 provider "azurerm" {
   features {}
-  subscription_id = var.azure_subscription_id
+  subscription_id            = var.azure_subscription_id
   skip_provider_registration = true
 }
 
 
 module "gcp_solution" {
-  source = "./gcp_solution"
+  source     = "./gcp_solution"
   project_id = var.gcp_project_id
+  count      = var.enable_gcp ? 1 : 0
 }
 
 module "aws_solution" {
   source = "./aws_solution"
+  count  = var.enable_aws ? 1 : 0
 }
-module "azure_solution" {
-  source = "./azure_solution"
-  location = var.azure_location
-  resource_group_name = var.azure_resource_group
-}
+#module "azure_solution" {
+#  source = "./azure_solution"
+#  location = var.azure_location
+#  resource_group_name = var.azure_resource_group
+#}
